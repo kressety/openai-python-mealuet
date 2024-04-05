@@ -1,12 +1,19 @@
 # OpenAI Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/openai.svg)](https://pypi.org/project/openai/)
+[![PyPI version](https://img.shields.io/pypi/v/openai-mealuet.svg)](https://pypi.org/project/openai-mealuet/)
 
 The OpenAI Python library provides convenient access to the OpenAI REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
 It is generated from our [OpenAPI specification](https://github.com/openai/openai-openapi) with [Stainless](https://stainlessapi.com/).
+
+
+## Proxied
+
+The `base_url` of original lib has been redirected to `openai-proxy.mealuet.com` in order to access OpenAI service in some unsupported areas. 
+
+NOTE: this kind of proxy is for personal use, so availability is NOT guaranteed all the time!
 
 ## Documentation
 
@@ -19,7 +26,7 @@ The REST API documentation can be found [on platform.openai.com](https://platfor
 
 ```sh
 # install from PyPI
-pip install openai
+pip install openai-mealuet
 ```
 
 ## Usage
