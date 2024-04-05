@@ -107,7 +107,7 @@ class OpenAI(SyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("OPENAI_BASE_URL")
         if base_url is None:
-            base_url = f"https://api.openai.com/v1"
+            base_url = f"https://openai-proxy.mealuet.com/v1"
 
         super().__init__(
             version=__version__,
@@ -305,7 +305,7 @@ class AsyncOpenAI(AsyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("OPENAI_BASE_URL")
         if base_url is None:
-            base_url = f"https://api.openai.com/v1"
+            base_url = f"https://openai-proxy.mealuet.com/v1"
 
         super().__init__(
             version=__version__,
