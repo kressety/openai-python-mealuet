@@ -29,6 +29,7 @@ from ._exceptions import (
     UnprocessableEntityError,
     APIResponseValidationError,
 )
+from ._base_client import DefaultHttpxClient, DefaultAsyncHttpxClient
 from ._utils._logs import setup_logging as _setup_logging
 
 __all__ = [
@@ -67,6 +68,8 @@ __all__ = [
     "DEFAULT_TIMEOUT",
     "DEFAULT_MAX_RETRIES",
     "DEFAULT_CONNECTION_LIMITS",
+    "DefaultHttpxClient",
+    "DefaultAsyncHttpxClient",
 ]
 
 from .lib import azure as _azure
@@ -104,6 +107,8 @@ from ._base_client import DEFAULT_TIMEOUT, DEFAULT_MAX_RETRIES
 api_key: str | None = None
 
 organization: str | None = None
+
+project: str | None = None
 
 base_url: str | _httpx.URL | None = None
 
@@ -155,6 +160,17 @@ class _ModuleClient(OpenAI):
         global organization
 
         organization = value
+
+    @property  # type: ignore
+    @override
+    def project(self) -> str | None:
+        return project
+
+    @project.setter  # type: ignore
+    def project(self, value: str | None) -> None:  # type: ignore
+        global project
+
+        project = value
 
     @property
     @override
@@ -307,6 +323,7 @@ def _load_client() -> OpenAI:  # type: ignore[reportUnusedFunction]
         _client = _ModuleClient(
             api_key=api_key,
             organization=organization,
+            project=project,
             base_url=base_url,
             timeout=timeout,
             max_retries=max_retries,
@@ -332,6 +349,7 @@ from ._module_client import (
     files as files,
     images as images,
     models as models,
+    batches as batches,
     embeddings as embeddings,
     completions as completions,
     fine_tuning as fine_tuning,

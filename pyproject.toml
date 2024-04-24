@@ -1,6 +1,6 @@
 [project]
 name = "openai-mealuet"
-version = "1.16.2"
+version = "1.23.4"
 description = "Python library of OpenAI API proxied by mealuet"
 dynamic = ["readme"]
 license = "Apache-2.0"
@@ -41,8 +41,8 @@ classifiers = [
 datalib = ["numpy >= 1", "pandas >= 1.2.3", "pandas-stubs >= 1.1.0.11"]
 
 [project.urls]
-Homepage = "https://github.com/kressety/openai-python-mealuet"
-Repository = "https://github.com/kressety/openai-python-mealuet"
+Homepage = "https://github.com/openai/openai-python"
+Repository = "https://github.com/openai/openai-python"
 
 [project.scripts]
 openai = "openai.cli:main"
@@ -114,7 +114,7 @@ path = "README.md"
 [[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
 # replace relative links with absolute links
 pattern = '\[(.+?)\]\(((?!https?://)\S+?)\)'
-replacement = '[\1](https://github.com/kressety/openai-python-mealuet/tree/main/\g<2>)'
+replacement = '[\1](https://github.com/openai/openai-python/tree/main/\g<2>)'
 
 [tool.black]
 line-length = 120
